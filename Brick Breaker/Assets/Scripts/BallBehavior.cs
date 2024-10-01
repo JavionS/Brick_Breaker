@@ -44,9 +44,16 @@ public class BallBehavior : MonoBehaviour
         }
     }
     
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Paddle"))
+        {
+            _direction.y *= -1;
+        }
+    }
     void ResetBall()
     {
-        transform.position = new Vector3(Paddle.transform.position.x, -3.72f, 0);
+        transform.position = new Vector3(Paddle.transform.position.x, -3.71f, 0);
             
         _direction = new Vector2(
             Random.value > 0.5f ? 1 : -1, 
