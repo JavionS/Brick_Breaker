@@ -18,13 +18,17 @@ public class PaddleBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(LKey) && transform.position.x > -X_Limit)
+        if (GameBehavior.Instance.State == Utilities.GameplayState.Play)
         {
-            transform.position += new Vector3(-Speed * Time.deltaTime, 0, 0);   
-        };        
-        if (Input.GetKey(RKey) && transform.position.x < X_Limit)
-        {
-            transform.position += new Vector3(Speed * Time.deltaTime, 0, 0);   
-        };
+            if (Input.GetKey(LKey) && transform.position.x > -X_Limit)
+            {
+                transform.position += new Vector3(-Speed * Time.deltaTime, 0, 0);   
+            };        
+            if (Input.GetKey(RKey) && transform.position.x < X_Limit)
+            {
+                transform.position += new Vector3(Speed * Time.deltaTime, 0, 0);   
+            };
+        }
+        
     }
 }
